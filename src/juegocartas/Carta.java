@@ -24,8 +24,20 @@ public class Carta {
 		this.atributos.add(atributos);
 	}
 	
-	public Atributo getAtributo() {
-		return this.atributos.get((int)Math.random()*this.atributos.size());
+	public Atributo getAtributo(int i) {
+		return this.atributos.get(i);
 	}
+
+	public int cantAtributos() {
+		return this.atributos.size();
+	}
+	
+	
+	@Override
+	public String toString() {
+		return "nombre: " + nombre + " => " + atributos;
+	}
+	
+	
 
 }

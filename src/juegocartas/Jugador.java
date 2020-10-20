@@ -20,17 +20,45 @@ public class Jugador {
 		this.nombre = nombre;
 	}
 
-	public void addCarta(Carta carta) {
-		this.cartas.add(carta);
+	public void addCarta(Carta c) {
+		this.cartas.add(c);
 	}
 	
-	public void addCarta(Carta c1, Carta c2) {
-		this.cartas.add(c1);
-		this.cartas.add(c2);
-	}
-	
+	/*
+	 * Devuelve un atributo de manera random verificando la cantidad de los mismos por carta
+	 */
 	public Atributo elegirAtributo() {
-		return this.cartas.get(0).getAtributo();
+		
+		int atributo = (int) (Math.random())*(this.getPrimerCarta().cantAtributos());
+		return this.getPrimerCarta().getAtributo(atributo);
 	}
 
+	/*
+	 * Devuelve la primer carta del mazo propio
+	 */
+	public Carta getPrimerCarta() {
+		return this.cartas.get(0);
+	}
+	
+	/**
+	 * Devuelve y remueve la primer carta
+	 * @return
+	 */
+	public Carta removePrimerCarta() {
+		return this.cartas.remove(0);
+	}
+	
+	/**
+	 * Devuelve la cantidad decartas del jugador
+	 */
+	public int cantCartas() {
+		return this.cartas.size();
+	}
+	
+	@Override
+	public String toString() {
+		return "Jugador [nombre=" + nombre + ", cartas=" + cartas + "]";
+	}
+
+	
 }

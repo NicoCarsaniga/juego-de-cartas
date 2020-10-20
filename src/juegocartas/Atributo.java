@@ -37,6 +37,12 @@ public class Atributo implements Comparable<Atributo>{
 		else
 			return 1;
 	}
+
+	@Override
+	public String toString() {
+		return nombre + ": " +  valor;
+	}
+	
 	
 	
 
