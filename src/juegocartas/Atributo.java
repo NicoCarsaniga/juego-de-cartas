@@ -26,6 +26,12 @@ public class Atributo implements Comparable<Atributo>{
 	public void setValor(int valor) {
 		this.valor = valor;
 	}
+	
+	@Override
+	public boolean equals(Object o) {
+		Atributo a = (Atributo)o;
+		return a.getNombre().equals(this.nombre);
+	}
 
 	@Override
 	public int compareTo(Atributo a) {
@@ -40,9 +46,8 @@ public class Atributo implements Comparable<Atributo>{
 
 	@Override
 	public String toString() {
-		return nombre + ": " +  valor;
+		return nombre + ": " + valor;
 	}
-	
 	
 	
 

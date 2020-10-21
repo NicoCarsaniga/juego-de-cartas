@@ -14,9 +14,11 @@ import javax.json.JsonReader;
 public class Mazo {
 
 	private ArrayList<Carta> cartas;
+	private ArrayList<Carta> excluidas;
 
 	public Mazo() {
 		this.cartas = new ArrayList<>();
+		this.excluidas = new ArrayList<>();
 	}
 
 	public void addCarta(Carta c) {
@@ -24,7 +26,8 @@ public class Mazo {
 	}
 
 	public void repartirCarta(Jugador j1, Jugador j2) {
-
+		
+		this.desecharCartasDiferente();
 		this.barajar();
 		for(int i = 0; i < this.cartas.size(); i++)
 			if(i % 2 == 0)
@@ -45,6 +48,38 @@ public class Mazo {
 		this.cartas.addAll(aux);
 		System.out.println(this.cartas);
 	}
+	
+	/**
+	 * devuelve el indice con la primer carta igual a la mayoria
+	 * @return
+	 */	
+	public int getIndiceModelo() {
+		int temp = 0;
+		for(int i = 0; i<cartas.size(); i++){
+			for(int j = 0; j<cartas.size(); j++){
+				if(cartas.get(i).equals(cartas.get(j)))
+					temp++;
+				else
+					temp--;					
+			}
+			if(temp>0)
+				return i;
+		}
+		return -1;
+	}
+	/**
+	 * Desecha las cartas que no son del mismo tipo
+	 */
+	public void desecharCartasDiferente() {
+		int num = this.getIndiceModelo();
+		for(int i = 0; i < cartas.size(); i++){
+			if(!this.cartas.get(i).equals(this.cartas.get(num))){
+				this.excluidas.add(this.cartas.get(i));
+				this.cartas.remove(this.cartas.get(i));
+			}
+		}
+	}
+	
 
 	public void crearMazo(String jsonFile) {
 		File jsonInputFile = new File(jsonFile);
@@ -59,13 +94,13 @@ public class Mazo {
 				String nombreCarta = carta.getString("nombre");
 				Carta c = new Carta(nombreCarta);
 				JsonObject atributos = (JsonObject) carta.getJsonObject("atributos");
-				String atributosStr = "";
+				//String atributosStr = "";
 				for (String nombreAtributo:atributos.keySet()){
-					atributosStr = atributosStr + nombreAtributo + ": " + atributos.getInt(nombreAtributo) + "; ";
+					//atributosStr = atributosStr + nombreAtributo + ": " + atributos.getInt(nombreAtributo) + "; ";
 					Atributo a = new Atributo(nombreAtributo, atributos.getInt(nombreAtributo));
 					c.addAtributos(a);
 				}
-				System.out.println(nombreCarta+"\t\t\t"+atributosStr);
+				//System.out.println(nombreCarta+"\t\t\t"+atributosStr);
 				this.addCarta(c);
 			}
 

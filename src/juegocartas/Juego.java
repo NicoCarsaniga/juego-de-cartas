@@ -51,8 +51,7 @@ public class Juego {
 		Jugador j1 = new Jugador("Niko");
 		Jugador j2 = new Jugador("Li");
 		
-		juego.getMazo().repartirCarta(j1, j2);
-		
+		juego.getMazo().repartirCarta(j1, j2);		
 		
 		System.out.println(j1);
 		System.out.println(j2);

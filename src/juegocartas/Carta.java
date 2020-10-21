@@ -32,12 +32,30 @@ public class Carta {
 		return this.atributos.size();
 	}
 	
+	public boolean tieneAtributo(String s) {
+		for(Atributo atributo: atributos)
+			if(atributo.getNombre().equals(s))
+				return true;
+		return false;
+	}
+	
 	
 	@Override
 	public String toString() {
 		return "nombre: " + nombre + " => " + atributos;
 	}
 	
+	@Override
+	public boolean equals(Object o) {
+		Carta c = (Carta)o;
+		String s = "";		
+		for(Atributo atributo: atributos) {
+			s = atributo.getNombre();
+			if(!c.tieneAtributo(s))
+				return false;
+		}
+		return true;		
+	}
 	
 
 }
