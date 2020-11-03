@@ -27,10 +27,10 @@ public class Jugador {
 	/*
 	 * Devuelve un atributo de manera random verificando la cantidad de los mismos por carta
 	 */
-	public Atributo elegirAtributo() {
+	public String elegirAtributo() {
 		
 		int atributo = (int) (Math.random())*(this.getPrimerCarta().cantAtributos());
-		return this.getPrimerCarta().getAtributo(atributo);
+		return this.getPrimerCarta().getAtributo(atributo).getNombre();
 	}
 
 	/*
@@ -49,7 +49,7 @@ public class Jugador {
 	}
 	
 	/**
-	 * Devuelve la cantidad decartas del jugador
+	 * Devuelve la cantidad de cartas del jugador
 	 */
 	public int cantCartas() {
 		return this.cartas.size();

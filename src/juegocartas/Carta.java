@@ -24,6 +24,8 @@ public class Carta {
 		this.atributos.add(atributos);
 	}
 	
+	//reveer
+	//metodo que devuelve un list<string>
 	public Atributo getAtributo(int i) {
 		return this.atributos.get(i);
 	}
@@ -39,6 +41,16 @@ public class Carta {
 		return false;
 	}
 	
+	public int getValor(String nombre) {
+		for(Atributo atributo: atributos)
+			if(atributo.getNombre().equals(nombre))
+				return atributo.getValor();
+		return 0;
+	}
+	
+	public int combatir(Carta carta, String nombre) {
+		return Integer.compare(this.getValor(nombre), carta.getValor(nombre));
+	}
 	
 	@Override
 	public String toString() {
@@ -56,6 +68,8 @@ public class Carta {
 		}
 		return true;		
 	}
+
+	
 	
 
 }
