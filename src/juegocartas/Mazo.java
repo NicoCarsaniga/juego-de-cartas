@@ -25,6 +25,11 @@ public class Mazo {
 		this.cartas.add(c);
 	}
 
+	/**
+	 * Desecha las cartas diferentes, las mezcla y las reparte a los jugadores ingresados por parametro
+	 * @param Jugador j1
+	 * @param Jugador j2
+	 */
 	public void repartirCarta(Jugador j1, Jugador j2) {
 		
 		this.desecharCartasDiferente();
@@ -79,8 +84,11 @@ public class Mazo {
 			}
 		}
 	}
-	
 
+	/**
+	 * Instancia un mazo a partir de un archivo .json
+	 * @param jsonFile
+	 */
 	public void crearMazo(String jsonFile) {
 		File jsonInputFile = new File(jsonFile);
 		InputStream is;

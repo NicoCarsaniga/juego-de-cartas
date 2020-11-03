@@ -41,7 +41,7 @@ public class Carta {
 		return false;
 	}
 	
-	public int getValor(String nombre) {
+	public int getValor(String nombre) {//este metodo es modifcado por las pocimas
 		for(Atributo atributo: atributos)
 			if(atributo.getNombre().equals(nombre))
 				return atributo.getValor();

@@ -9,7 +9,7 @@ public class Main {
 		Jugador j1 = new Jugador("Niko");
 		Jugador j2 = new Jugador("Li");
 
-		Juego juego = new Juego(20, j1, j2);
+		Juego juego = new Juego(6, j1, j2);
 
 		juego.getMazo().crearMazo(mazoPath);
 
@@ -19,6 +19,9 @@ public class Main {
 		System.out.println(j1);
 		System.out.println(j2);
 
-
+		juego.jugar();
+		
+		System.out.println(j1);
+		System.out.println(j2);
 	}
 }
