@@ -20,53 +20,45 @@ public class Juego {
 		return mazo;
 	}
 
-	public Jugador ronda(Jugador ganador) {
-		String atributoNombre = ganador.elegirAtributo();
+	public Jugador ronda(Jugador primero) {
+		String atributoNombre = primero.elegirAtributo();
 		Carta c1 = j1.getPrimerCarta();
 		Carta c2 = j2.getPrimerCarta();
+		Jugador ganador = null;
+		Jugador perdedor = null;
 		int resultado = c1.combatir(c2, atributoNombre);
 		this.contadorRonda++;
 		if(resultado < 0) {
 			j2.addCarta(j1.removePrimerCarta());
-			return j2;
+			ganador = j2;
+			perdedor = j1;
 		}else if(resultado > 0) {
 			j1.addCarta(j2.removePrimerCarta());
-			return j1;
+			ganador = j1;
+			perdedor = j2;
 		}else {
 			j1.addCarta(c1);
 			j2.addCarta(c2);
-			return ganador;
+			if(ganador == j1)
+				perdedor = j2;
+			perdedor = j1;
 		}
+		System.out.println("------- Ronda " + this.contadorRonda + " -------\r\n" + 
+				"El jugador " + primero.getNombre() + " selecciona competir por el atributo " + atributoNombre + "\r\n" + 
+				"La carta de " + j1.getNombre() + " es " + j1.getPrimerCarta().getNombre() + " con " + atributoNombre + " " + j1.getPrimerCarta().getValor(atributoNombre) + " , se aplicó pócima\r\n" + 
+				"Fortalecedora valor resultante 924\r\n" + 
+				"La carta de " + j2.getNombre() + " es " + j2.getPrimerCarta().getNombre() + " con " + atributoNombre + " " + j2.getPrimerCarta().getValor(atributoNombre) + "\r\n" + 
+				"Gana la ronda " + ganador.getNombre() + " y queda con " + ganador.cantCartas() + " cartas ( " + perdedor.getNombre() + " posee ahora " + perdedor.cantCartas() + "\r\n" + 
+				"cartas)\r\n");
+		return ganador;
 	}
 
 	public void jugar() {
 		Jugador ganadorRonda = j1;
-		while(this.contadorRonda != this.turnos) {
+		while(this.contadorRonda != this.turnos && (j1.cantCartas() > 0 && j2.cantCartas() > 0)) {
 			ganadorRonda = this.ronda(ganadorRonda);
 		}
 	}
-
-	//Modificar el msj con variables
-	public String crearMensaje() {
-		String mensaje = "------- Ronda 1 -------\r\n" + 
-				"El jugador Juan selecciona competir por el atributo fuerza\r\n" + 
-				"La carta de Juan es Flash con fuerza 840 , se aplicó pócima\r\n" + 
-				"Fortalecedora valor resultante 924\r\n" + 
-				"La carta de María es Súperman con fuerza 2000\r\n" + 
-				"Gana la ronda María y queda con 11 cartas ( Juan posee ahora 9\r\n" + 
-				"cartas)\r\n" + 
-				"------- Ronda 2 -------\r\n" + 
-				"El jugador María selecciona competir por el atributo velocidad\r\n" + 
-				"La carta de Juan es Manhunter con velocidad 85\r\n" + 
-				"La carta de María es Firestorm con velocidad 220 , se aplicó pócima\r\n" + 
-				"cocktail valor resultante 1255\r\n" + 
-				"Gana la ronda María y queda con 12 cartas ( Juan posee ahora 8\r\n" + 
-				"cartas)";
-		
-		return mensaje;
-	}
-
-
 
 
 }
