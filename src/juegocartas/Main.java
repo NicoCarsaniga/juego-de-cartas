@@ -6,8 +6,8 @@ public class Main {
 
 		String mazoPath = "./superheroes.json";
 
-		Jugador j1 = new Jugador("Niko");
-		Jugador j2 = new Jugador("Li");
+		Jugador j1 = new Jugador("Niko", );
+		Jugador j2 = new Jugador("Li", );
 
 		Juego juego = new Juego(50, j1, j2);
 

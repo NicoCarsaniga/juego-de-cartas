@@ -2,14 +2,18 @@ package juegocartas;
 
 import java.util.ArrayList;
 
+import juegocartas.estrategiasJugador.EstrategiaJugador;
+
 public class Jugador {
 	
 	private String nombre;
 	private ArrayList<Carta> cartas;
+	private EstrategiaJugador estrategia;
 	
-	public Jugador(String nombre) {
+	public Jugador(String nombre, EstrategiaJugador estrategia) {
 		this.nombre = nombre;
 		this.cartas = new ArrayList<>();
+		this.estrategia = estrategia;
 	}
 
 	public String getNombre() {
@@ -20,17 +24,16 @@ public class Jugador {
 		this.nombre = nombre;
 	}
 
+	public EstrategiaJugador getEstrategia() {
+		return estrategia;
+	}
+
+	public void setEstrategia(EstrategiaJugador estrategia) {
+		this.estrategia = estrategia;
+	}
+
 	public void addCarta(Carta c) {
 		this.cartas.add(c);
-	}
-	
-	/*
-	 * Devuelve un atributo de manera random verificando la cantidad de los mismos por carta
-	 */
-	public String elegirAtributo() {
-		
-		int atributo = (int) ((Math.random())*(this.getPrimerCarta().cantAtributos()));
-		return this.getPrimerCarta().getAtributo(atributo).getNombre();
 	}
 
 	/*
