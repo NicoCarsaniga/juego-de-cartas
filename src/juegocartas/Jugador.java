@@ -29,7 +29,7 @@ public class Jugador {
 	 */
 	public String elegirAtributo() {
 		
-		int atributo = (int) (Math.random())*(this.getPrimerCarta().cantAtributos());
+		int atributo = (int) ((Math.random())*(this.getPrimerCarta().cantAtributos()));
 		return this.getPrimerCarta().getAtributo(atributo).getNombre();
 	}
 

@@ -13,7 +13,7 @@ public class Juego {
 		this.j1 = j1;
 		this.j2 = j2;
 		this.turnos = turnos;
-		this.contadorRonda = 1;
+		this.contadorRonda = 0;
 	}
 
 	public Mazo getMazo() {
