@@ -7,7 +7,6 @@ public class Juego {
 	private int turnos;
 	private int contadorRonda;
 
-	//Crear constructor sin turnos
 	public Juego(int turnos, Jugador j1, Jugador j2) {
 		this.mazo = new Mazo();		
 		this.j1 = j1;
@@ -29,11 +28,14 @@ public class Juego {
 		int resultado = c1.combatir(c2, atributoNombre);
 		String aux = "Gana la ronda ";
 		this.contadorRonda++;
+		//Primer parte del mensaje
 		String msj = "------- Ronda " + this.contadorRonda + " -------\r\n" + 
 				"El jugador " + primero.getNombre() + " selecciona competir por el atributo " + atributoNombre + "\r\n" + 
-				"La carta de " + j1.getNombre() + " es " + j1.getPrimerCarta().getNombre() + " con " + atributoNombre + " " + j1.getPrimerCarta().getValor(atributoNombre) + " , se aplicó pócima\r\n" + 
-				"Fortalecedora valor resultante 924\r\n" + 
-				"La carta de " + j2.getNombre() + " es " + j2.getPrimerCarta().getNombre() + " con " + atributoNombre + " " + j2.getPrimerCarta().getValor(atributoNombre) + "\r\n";
+				"La carta de " + j1.getNombre() + " es " + j1.getPrimerCarta().getNombre() + " con " + atributoNombre + " " + 
+				j1.getPrimerCarta().getValor(atributoNombre) + " , se aplicó pócima\r\n" + "Fortalecedora valor resultante 924\r\n" + 
+				"La carta de " + j2.getNombre() + " es " + j2.getPrimerCarta().getNombre() + " con " + atributoNombre + " " + 
+				j2.getPrimerCarta().getValor(atributoNombre) + "\r\n";
+		
 		if(resultado < 0) {
 			j2.addCarta(j1.removePrimerCarta());
 			j2.addCarta(j2.removePrimerCarta());
@@ -54,10 +56,9 @@ public class Juego {
 			else
 				perdedor = j1;
 		}
-		
-		System.out.println(msj+
-				aux + ganador.getNombre() + " queda con " + ganador.cantCartas() + " cartas ( " + perdedor.getNombre() + " posee ahora " + perdedor.cantCartas() + "\r\n" + 
-				"cartas)\r\n");
+		//Segunda parte del mensaje
+		System.out.println(msj + aux + ganador.getNombre() + " queda con " + ganador.cantCartas() + " cartas ( " + perdedor.getNombre() +
+				" posee ahora " + perdedor.cantCartas() + "\r\n" + "cartas)\r\n");
 		return ganador;
 	}
 

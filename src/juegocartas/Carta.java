@@ -2,11 +2,13 @@ package juegocartas;
 
 import java.util.ArrayList;
 
+import mejorasdecartas.PocimaAbs;
+
 public class Carta {
 	
 	private String nombre;
 	private ArrayList<Atributo> atributos;	
-	
+	private PocimaAbs pocima;
 	
 	public Carta(String nombre) {
 		this.nombre = nombre;
@@ -30,6 +32,14 @@ public class Carta {
 		return this.atributos.get(i);
 	}
 
+	public PocimaAbs getPocima() {
+		return pocima;
+	}
+
+	public void setPocima(PocimaAbs pocima) {
+		this.pocima = pocima;
+	}
+
 	public int cantAtributos() {
 		return this.atributos.size();
 	}
@@ -44,7 +54,7 @@ public class Carta {
 	public int getValor(String nombre) {//este metodo es modifcado por las pocimas
 		for(Atributo atributo: atributos)
 			if(atributo.getNombre().equals(nombre))
-				return atributo.getValor();
+				return pocima.aplicar(atributo);
 		return 0;
 	}
 	

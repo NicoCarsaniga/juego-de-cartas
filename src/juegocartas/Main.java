@@ -3,12 +3,15 @@ package juegocartas;
 import juegocartas.estrategiasJugador.EstrategiaJugador;
 import juegocartas.estrategiasJugador.Inteligente;
 import juegocartas.estrategiasJugador.Obstinado;
+import mejorasdecartas.PocimaAbs;
+import mejorasdecartas.PocimaModificadora;
+import mejorasdecartas.PocimaModificadoraPorAtributo;
 
 public class Main {
 
 	public static void main(String[] args) {
 
-		String mazoPath = "./autos.json";
+		String mazoPath = "./superheroes.json";
 		
 		EstrategiaJugador inteligente = new Inteligente();
 		EstrategiaJugador porfiado = new Obstinado("velocidad");
@@ -19,7 +22,11 @@ public class Main {
 		Juego juego = new Juego(1000, j1, j2);
 
 		juego.getMazo().crearMazo(mazoPath);
-
+		
+		PocimaAbs fortalecedora = new PocimaModificadora("fortalecedora", 1.50);
+		PocimaAbs fuerza35 = new PocimaModificadora("fuerza", 1.35);
+		PocimaAbs SelectivaFuerza = new PocimaModificadoraPorAtributo("Fuerza", "fuerza", fuerza35);
+		
 
 		juego.getMazo().repartirCarta(j1, j2);		
 
