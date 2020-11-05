@@ -1,0 +1,218 @@
+{
+  "cartas": [
+    {
+      "nombre": "Peugeot 404",
+      "atributos": {
+        "Km/h": 125,
+        "HP": 60,
+        "Cilindros": 4,
+        "RPM": 4500,
+        "Aceleracion 0-100": 23,
+		"cm3": 1748
+      }
+    },
+    {
+      "nombre": "Fiat Super Europa",
+      "atributos": {        
+        "HP": 60,        
+        "RPM": 6000,
+        "Aceleracion 0-100": 15,
+		"Cilindros": 4,
+		"cm3": 1290,
+		"Km/h": 142
+      }
+    },
+	{
+      "nombre": "Renault 18 TX",
+      "atributos": {
+        "Km/h": 170,
+        "HP": 99,
+        "Cilindros": 4,
+        "RPM": 5700,
+        "Aceleracion 0-100": 12,
+		"cm3": 1995
+      }
+    },
+	{
+      "nombre": "Peugeot 504 GR",
+      "atributos": {
+        "Cilindros": 4,
+		"Km/h": 157,
+        "HP": 110,        
+        "RPM": 5600,
+        "Aceleracion 0-100": 14,
+		"cm3": 1971
+      }
+    },
+	{
+      "nombre": "VW Gacel",
+      "atributos": {
+        "Km/h": 153,
+        "HP": 88,
+        "Cilindros": 4,
+        "RPM": 5800,
+        "Aceleracion 0-100": 14,
+		"cm3": 1588
+      }
+    },
+	{
+      "nombre": "Renault 6 GTL",
+      "atributos": {
+        "Km/h": 127,
+        "HP": 60,
+        "Cilindros": 4,
+        "RPM": 4500,
+        "Aceleracion 0-100": 22,
+		"cm3": 1397
+      }
+    },
+	{
+      "nombre": "Renault 12 TS",
+      "atributos": {
+        "Km/h": 149,
+        "HP": 90,
+        "Cilindros": 4,
+        "RPM": 5500,
+        "Aceleracion 0-100": 15,
+		"cm3": 1397
+      }
+    },
+	{
+      "nombre": "VW 1.8",
+      "atributos": {
+        "Km/h": 152,
+        "HP": 76,
+        "Cilindros": 4,
+        "RPM": 5000,
+        "Aceleracion 0-100": 15,
+		"cm3": 1798
+      }
+    },
+	{
+      "nombre": "Taunus Ghia",
+      "atributos": {
+        "Km/h": 165,
+        "HP": 114,
+        "Cilindros": 4,
+        "RPM": 5500,
+        "Aceleracion 0-100": 14,
+		"cm3": 2298
+      }
+    },
+	{
+      "nombre": "Torino",
+      "atributos": {
+        "Km/h": 200,
+        "HP": 158,
+        "Cilindros": 6,
+        "RPM": 5000,
+        "Aceleracion 0-100": 10,
+		"cm3": 3770
+      }
+    },
+	{
+      "nombre": "Tomate",
+      "atributos": {
+        "calorias": 18,
+        "Grasas totales": 1,
+        "Colesterol": 0,
+        "Sodio": 5,
+        "Potasio": 237,
+		"carbohidratos": 4,
+		"Proteinas": 1,
+		"Vitamina A": 833,
+		"Calcio": 10
+      }
+    },
+	{
+      "nombre": "Falcon 3.6",
+      "atributos": {
+        "Km/h": 160,
+        "HP": 132,
+        "Cilindros": 6,
+        "RPM": 4000,
+        "Aceleracion 0-100": 18,
+		"cm3": 3620
+      }
+    },
+	{
+      "nombre": "Fairline",
+      "atributos": {
+        "Km/h": 170,
+		"Aceleracion 0-100": 16,
+        "HP": 143,
+        "Cilindros": 6,
+        "RPM": 4500,
+		"cm3": 4785
+      }
+    },
+	{
+      "nombre": "Falcon Rural",
+      "atributos": {
+        "Km/h": 150,
+        "HP": 84,
+        "Cilindros": 6,
+        "RPM": 4000,
+        "Aceleracion 0-100": 18,
+		"cm3": 3620
+      }
+    },
+	{
+      "nombre": "Falcon Rural XLS",
+      "atributos": {
+        "Km/h": 150,
+        "HP": 84,
+        "Cilindros": 6,
+        "RPM": 4000,
+        "Aceleracion 0-100": 18,
+		"cm3": 3620,
+		"peso": 1000
+      }
+    },
+	{
+      "nombre": "Fiat 600",
+      "atributos": {
+        "Km/h": 110,
+        "HP": 40,
+        "Cilindros": 4,
+        "RPM": 5600,
+        "Aceleracion 0-100": 22,
+		"cm3": 903
+      }
+    },
+	{
+      "nombre": "I.E.S. 3 CV",
+      "atributos": {
+        "Km/h": 113,
+        "HP": 31,
+        "Cilindros": 2,
+        "RPM": 6700,
+        "Aceleracion 0-100": 45,
+		"cm3": 602
+      }
+    },
+	{
+      "nombre": "Fiat 147",
+      "atributos": {
+        "Km/h": 140,
+        "HP": 52,
+        "Cilindros": 4,
+        "RPM": 5600,
+        "Aceleracion 0-100": 14,
+		"cm3": 1048
+      }
+    },
+	{
+      "nombre": "Renault 4",
+      "atributos": {
+        "Km/h": 120,
+        "HP": 34,
+        "Cilindros": 4,
+        "RPM": 5500,
+        "Aceleracion 0-100": 19,
+		"cm3": 1020
+      }
+    }
+	
+  ]
+}

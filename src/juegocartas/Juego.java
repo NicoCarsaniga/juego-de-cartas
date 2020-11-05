@@ -29,17 +29,24 @@ public class Juego {
 		int resultado = c1.combatir(c2, atributoNombre);
 		String aux = "Gana la ronda ";
 		this.contadorRonda++;
+		String msj = "------- Ronda " + this.contadorRonda + " -------\r\n" + 
+				"El jugador " + primero.getNombre() + " selecciona competir por el atributo " + atributoNombre + "\r\n" + 
+				"La carta de " + j1.getNombre() + " es " + j1.getPrimerCarta().getNombre() + " con " + atributoNombre + " " + j1.getPrimerCarta().getValor(atributoNombre) + " , se aplicó pócima\r\n" + 
+				"Fortalecedora valor resultante 924\r\n" + 
+				"La carta de " + j2.getNombre() + " es " + j2.getPrimerCarta().getNombre() + " con " + atributoNombre + " " + j2.getPrimerCarta().getValor(atributoNombre) + "\r\n";
 		if(resultado < 0) {
 			j2.addCarta(j1.removePrimerCarta());
+			j2.addCarta(j2.removePrimerCarta());
 			ganador = j2;
 			perdedor = j1;
 		}else if(resultado > 0) {
 			j1.addCarta(j2.removePrimerCarta());
+			j1.addCarta(j1.removePrimerCarta());
 			ganador = j1;
 			perdedor = j2;
 		}else {
-			j1.addCarta(c1);
-			j2.addCarta(c2);
+			j1.addCarta(j1.removePrimerCarta());
+			j2.addCarta(j2.removePrimerCarta());
 			aux = "Hubo Empate. ";
 			ganador = primero;
 			if(ganador == j1)
@@ -48,11 +55,7 @@ public class Juego {
 				perdedor = j1;
 		}
 		
-		System.out.println("------- Ronda " + this.contadorRonda + " -------\r\n" + 
-				"El jugador " + primero.getNombre() + " selecciona competir por el atributo " + atributoNombre + "\r\n" + 
-				"La carta de " + j1.getNombre() + " es " + j1.getPrimerCarta().getNombre() + " con " + atributoNombre + " " + j1.getPrimerCarta().getValor(atributoNombre) + " , se aplicó pócima\r\n" + 
-				"Fortalecedora valor resultante 924\r\n" + 
-				"La carta de " + j2.getNombre() + " es " + j2.getPrimerCarta().getNombre() + " con " + atributoNombre + " " + j2.getPrimerCarta().getValor(atributoNombre) + "\r\n" + 
+		System.out.println(msj+
 				aux + ganador.getNombre() + " queda con " + ganador.cantCartas() + " cartas ( " + perdedor.getNombre() + " posee ahora " + perdedor.cantCartas() + "\r\n" + 
 				"cartas)\r\n");
 		return ganador;
@@ -63,7 +66,6 @@ public class Juego {
 		while(this.contadorRonda != this.turnos && (j1.cantCartas() > 0 && j2.cantCartas() > 0)) {
 			ganadorRonda = this.ronda(ganadorRonda);
 		}
+		System.out.println("El Juego ha Terminado Felicidades al Ganador");
 	}
-
-
 }

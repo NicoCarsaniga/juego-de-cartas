@@ -1,11 +1,11 @@
 package mejorasdecartas;
 
-public abstract class Pocion {
+public abstract class PocionAbs {
 	
 	private String nombre, descripcion;
 	private double valor;
 	
-	public Pocion(String nombre, String descripcion, double valor) {
+	public PocionAbs(String nombre, String descripcion, double valor) {
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.valor = valor;
