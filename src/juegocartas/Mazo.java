@@ -5,24 +5,33 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
 
+import mejorasdecartas.PocimaAbs;
+
 public class Mazo {
 
 	private ArrayList<Carta> cartas;
 	private ArrayList<Carta> excluidas;
+	private ArrayList<PocimaAbs> pocimas;
 
 	public Mazo() {
 		this.cartas = new ArrayList<>();
 		this.excluidas = new ArrayList<>();
+		this.pocimas = new ArrayList<>();
 	}
 
 	public void addCarta(Carta c) {
 		this.cartas.add(c);
+	}
+	
+	public void addPocima(PocimaAbs pocima){
+		this.pocimas.add(pocima);
 	}
 
 	/**
@@ -34,11 +43,25 @@ public class Mazo {
 		
 		this.desecharCartasDiferente();
 		this.barajar();
+		this.asignarPocima();
 		for(int i = 0; i < this.cartas.size(); i++)
 			if(i % 2 == 0)
 				j1.addCarta(this.cartas.get(i));
 			else
 				j2.addCarta(this.cartas.get(i));
+	}
+
+	private void asignarPocima() {
+		Collections.shuffle(pocimas);	
+		int limite = 0;
+		if(pocimas.size() <= cartas.size())
+			limite = pocimas.size();
+		else
+			limite = cartas.size();
+		
+		for(int i = 0; i < limite; i++)
+			cartas.get(i).setPocima(pocimas.remove(i));		
+				
 	}
 
 	private void barajar() {

@@ -1,11 +1,13 @@
 package juegocartas;
 
+
 public class Juego {
 
 	private Jugador j1, j2;
 	private Mazo mazo;
 	private int turnos;
 	private int contadorRonda;
+	
 
 	public Juego(int turnos, Jugador j1, Jugador j2) {
 		this.mazo = new Mazo();		

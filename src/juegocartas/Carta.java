@@ -53,11 +53,22 @@ public class Carta {
 	
 	public int getValor(String nombre) {//este metodo es modifcado por las pocimas
 		for(Atributo atributo: atributos)
-			if(atributo.getNombre().equals(nombre))
-				return pocima.aplicar(atributo);
+			if(atributo.getNombre().equals(nombre)){
+				if(this.pocima == null){
+					return atributo.getValor();
+				}else
+					return this.modificar(atributo);
+			}
 		return 0;
 	}
 	
+	private int modificar(Atributo atributo) {
+		int num = 0;
+		if(this.pocima != null)
+			num = this.pocima.aplicar(atributo);
+		return num;
+	}
+
 	public int combatir(Carta carta, String nombre) {
 		return Integer.compare(this.getValor(nombre), carta.getValor(nombre));
 	}

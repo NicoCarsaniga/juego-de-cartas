@@ -12,7 +12,7 @@ public class PocimaValorFijo extends PocimaAbs {
 
 	@Override
 	public int aplicar(Atributo atr) {
-		return valor;
+		return this.valor;
 	}
 
 }

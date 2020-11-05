@@ -8,12 +8,12 @@ public class PocimaModificadora extends PocimaAbs {
 
 	public PocimaModificadora(String nombre, double porcentaje) {
 		super(nombre);
-		this.porcentaje= porcentaje;
+		this.porcentaje = porcentaje;
 	}
 
 	@Override
 	public int aplicar(Atributo atr) {
-		return (int) (atr.getValor() * this.porcentaje);
+		return (int) (atr.getValor() * (this.porcentaje / 100) + atr.getValor());
 	}
 
 }

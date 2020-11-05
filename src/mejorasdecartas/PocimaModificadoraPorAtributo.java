@@ -15,9 +15,12 @@ public class PocimaModificadoraPorAtributo extends PocimaAbs {
 
 	@Override
 	public int aplicar(Atributo atr) {
-		if(atr.getNombre().equals(this.nombreAtributo))
-			return pocima.aplicar(atr);
-		return atr.getValor();
+		if(atr.getNombre().equals(this.nombreAtributo)){
+			Atributo atri = new Atributo(atr.getNombre(), atr.getValor());
+			return pocima.aplicar(atri);
+		}else{
+			return atr.getValor();			
+		}
 	}
 
 }
