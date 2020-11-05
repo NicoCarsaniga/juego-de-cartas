@@ -1,6 +1,6 @@
-package juegocartas;
+package mejorasdecartas;
 
-public class Pocion {
+public abstract class Pocion {
 	
 	private String nombre, descripcion;
 	private double valor;
@@ -35,4 +35,6 @@ public class Pocion {
 		this.valor = valor;
 	}
 	
+		
+
 }
