@@ -49,7 +49,7 @@ public class Juego {
 			j1.addCarta(j1.removePrimerCarta());
 			j2.addCarta(j2.removePrimerCarta());
 			msjRonda.setEmpate(true);
-			//aux = ;
+			
 			ganador = primero;
 			if(ganador == j1)
 				perdedor = j2;

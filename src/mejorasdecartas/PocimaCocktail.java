@@ -13,12 +13,16 @@ public class PocimaCocktail extends PocimaAbs {
 		this.cocktail = new ArrayList<>();
 	}
 
+	public void addPocima(PocimaAbs p) {
+		this.cocktail.add(p);
+	}
+	
 	@Override
 	public int aplicar(Atributo atr) {
-		int salida = 0;
+		Atributo salida = atr;
 		for(PocimaAbs pocima: this.cocktail)
-			salida += pocima.aplicar(atr);
-		return salida;
+			salida = new Atributo(salida.getNombre(), pocima.aplicar(salida));		
+		return salida.getValor();
 	}
 
 }

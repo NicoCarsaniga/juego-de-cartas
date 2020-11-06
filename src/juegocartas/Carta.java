@@ -13,6 +13,7 @@ public class Carta {
 	public Carta(String nombre) {
 		this.nombre = nombre;
 		this.atributos = new ArrayList<>();
+		this.pocima = null;
 	}
 	
 	public String getNombre() {
@@ -25,11 +26,9 @@ public class Carta {
 	public void addAtributos(Atributo atributos) {
 		this.atributos.add(atributos);
 	}
-	
-	//reveer
-	//metodo que devuelve un list<string>
+
 	public Atributo getAtributo(int i) {
-		return this.atributos.get(i);
+		return new Atributo(this.atributos.get(i).getNombre(), this.atributos.get(i).getValor());
 	}
 
 	public PocimaAbs getPocima() {
@@ -63,7 +62,7 @@ public class Carta {
 		return 0;
 	}
 	
-	public int getValor(String nombre) {//este metodo es modifcado por las pocimas
+	public int getValor(String nombre) {
 		for(Atributo atributo: atributos)
 			if(atributo.getNombre().equals(nombre)){
 				if(this.pocima == null){

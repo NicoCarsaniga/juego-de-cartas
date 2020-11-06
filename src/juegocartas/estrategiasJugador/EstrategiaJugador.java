@@ -8,6 +8,4 @@ public abstract class EstrategiaJugador {
 	 */
 	public abstract String elegirAtributo(Carta carta); 
 
-
-
 }

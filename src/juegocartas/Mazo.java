@@ -44,6 +44,7 @@ public class Mazo {
 		this.desecharCartasDiferente();
 		this.barajar();
 		this.asignarPocima();
+		this.barajar();
 		for(int i = 0; i < this.cartas.size(); i++)
 			if(i % 2 == 0)
 				j1.addCarta(this.cartas.get(i));
@@ -65,7 +66,6 @@ public class Mazo {
 	}
 
 	private void barajar() {
-
 		ArrayList<Carta> aux = new ArrayList<>();
 		for(int i = 0; i < (int) (Math.random()*cartas.size()); i++) {
 			for(int j = 0; j < this.cartas.size(); j++) {
