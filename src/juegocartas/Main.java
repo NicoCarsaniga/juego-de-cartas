@@ -14,10 +14,10 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		String mazoPath = "./superheroes.json";
+		String mazoPath = "./autos.json";
 		
 		EstrategiaJugador inteligente = new Inteligente();
-		EstrategiaJugador porfiado = new Obstinado("velocidad");
+		EstrategiaJugador porfiado = new Obstinado("HP");
 		EstrategiaJugador timbero = new Timbero();
 
 		Jugador j1 = new Jugador("Niko", inteligente);
@@ -35,12 +35,21 @@ public class Main {
 		PocimaValorFijo quieroVale4 = new PocimaValorFijo("quiero vale cuatro", 4);
 		PocimaValorFijo numeMagico = new PocimaValorFijo("numero magico", 23);
 		PocimaValorFijo riverito = new PocimaValorFijo("riverito", 8);
+		PocimaValorFijo telBomberos = new PocimaValorFijo("Telefono de Bomberos", 100);
 
 		PocimaModificadora fuerza35 = new PocimaModificadora("fuerza", 35);
 		PocimaModificadoraPorAtributo SelectivaFuerza = new PocimaModificadoraPorAtributo("selectiva fuerza", "fuerza", fuerza35);
 		PocimaAbs peso = new PocimaModificadora("peso", 43);
 		PocimaModificadoraPorAtributo SelectivaPeso = new PocimaModificadoraPorAtributo("selectiva peso", "peso", peso);
-
+		PocimaAbs velocidad = new PocimaModificadora("velocidad", 33);
+		PocimaModificadoraPorAtributo SelectivaVelocidad = new PocimaModificadoraPorAtributo("selectiva velocidad", "velocidad", velocidad);
+		PocimaAbs perdidas = new PocimaModificadora("peleas ganadas", -18);
+		PocimaModificadoraPorAtributo SelectivaPerdidas = new PocimaModificadoraPorAtributo("selectiva perdidas", "Peleas Ganadas", perdidas);
+		PocimaAbs altura = new PocimaModificadora("altura", -9);
+		PocimaModificadoraPorAtributo SelectivaAltura = new PocimaModificadoraPorAtributo("selectiva altura", "altura", altura);
+		
+		
+		
 		PocimaCocktail cocktail1 = new PocimaCocktail("cocktail");
 		cocktail1.addPocima(fortalecedora);
 		cocktail1.addPocima(SelectivaPeso);
@@ -49,7 +58,12 @@ public class Main {
 		cocktail2.addPocima(foratlecedoraPlus);
 		cocktail2.addPocima(SelectivaPeso);
 		cocktail2.addPocima(kriptonita);
-		
+		PocimaCocktail cocktailMolotov = new PocimaCocktail("cocktail");
+		cocktailMolotov.addPocima(SelectivaVelocidad);
+		cocktailMolotov.addPocima(telBomberos);
+		cocktailMolotov.addPocima(SelectivaPerdidas);
+		cocktailMolotov.addPocima(SelectivaAltura);
+		cocktailMolotov.addPocima(cocktail2);
 		
 		juego.getMazo().addPocima(fortalecedora);
 		juego.getMazo().addPocima(foratlecedoraPlus);
@@ -60,18 +74,16 @@ public class Main {
 		juego.getMazo().addPocima(riverito);
 		juego.getMazo().addPocima(SelectivaFuerza);
 		juego.getMazo().addPocima(SelectivaPeso);
+		juego.getMazo().addPocima(telBomberos);
+		juego.getMazo().addPocima(SelectivaVelocidad);
+		juego.getMazo().addPocima(SelectivaPerdidas);
+		juego.getMazo().addPocima(SelectivaAltura);
 		juego.getMazo().addPocima(cocktail1);
 		juego.getMazo().addPocima(cocktail2);
-
+		juego.getMazo().addPocima(cocktailMolotov);
 		
-		juego.getMazo().repartirCarta(j1, j2);		
-
-		System.out.println(j1);
-		System.out.println(j2);
+		juego.getMazo().repartirCarta(j1, j2);
 
 		juego.jugar();
-		
-		System.out.println(j1);
-		System.out.println(j2);
 	}
 }

@@ -17,12 +17,10 @@ import mejorasdecartas.PocimaAbs;
 public class Mazo {
 
 	private ArrayList<Carta> cartas;
-	private ArrayList<Carta> excluidas;
 	private ArrayList<PocimaAbs> pocimas;
 
 	public Mazo() {
 		this.cartas = new ArrayList<>();
-		this.excluidas = new ArrayList<>();
 		this.pocimas = new ArrayList<>();
 	}
 
@@ -74,7 +72,6 @@ public class Mazo {
 			}
 		}
 		this.cartas.addAll(aux);
-		System.out.println(this.cartas);
 	}
 	
 	/**
@@ -98,11 +95,10 @@ public class Mazo {
 	/**
 	 * Desecha las cartas que no son del mismo tipo
 	 */
-	public void desecharCartasDiferente() {
+	private void desecharCartasDiferente() {
 		int num = this.getIndiceModelo();
 		for(int i = 0; i < cartas.size(); i++){
 			if(!this.cartas.get(i).equals(this.cartas.get(num))){
-				this.excluidas.add(this.cartas.get(i));
 				this.cartas.remove(this.cartas.get(i));
 			}
 		}

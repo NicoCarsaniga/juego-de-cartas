@@ -10,6 +10,14 @@ public class PocimaModificadora extends PocimaAbs {
 		super(nombre);
 		this.porcentaje = porcentaje;
 	}
+	
+	public double getPorcentaje() {
+		return porcentaje;
+	}
+
+	public void setPorcentaje(double porcentaje) {
+		this.porcentaje = porcentaje;
+	}
 
 	@Override
 	public int aplicar(Atributo atr) {

@@ -64,9 +64,18 @@ public class Juego {
 
 	public void jugar() {
 		Jugador ganadorRonda = j1;
+		String winner = "";
 		while(this.contadorRonda != this.turnos && (j1.cantCartas() > 0 && j2.cantCartas() > 0)) {
 			ganadorRonda = this.ronda(ganadorRonda);
 		}
-		System.out.println("El Juego ha Terminado Felicidades al Ganador");
+		if(j1.cantCartas() < j2.cantCartas()){
+			winner = j2.getNombre();
+		}else if(j1.cantCartas() > j2.cantCartas()){
+			winner = j1.getNombre();
+		}else{
+			winner = "Los 2 hicieron una buena Partida";
+		}
+		
+		System.out.println("El Juego ha Terminado Felicidades " + winner);
 	}
 }

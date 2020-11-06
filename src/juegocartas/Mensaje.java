@@ -11,6 +11,10 @@ public class Mensaje {
 		this.atributoNombre = atributoNombre;
 	}
 
+	public void setEmpate(boolean b) {
+		this.empate = b;
+	}
+	
 	public void eleccionAtributo(String ganadorRondaAnterior) {
 		this.mensajeRonda += "El jugador " + ganadorRondaAnterior + " selecciona competir por el atributo " + this.atributoNombre + "\r\n";
 	}
@@ -23,10 +27,6 @@ public class Mensaje {
 					j.getPrimerCarta().getValor(this.atributoNombre) + "\r\n";
 	}
 
-	public void setEmpate(boolean b) {
-		this.empate = b;
-	}
-	
 	public void resultadoCombate(Jugador ganador, Jugador perdedor) {
 		String resultado = "Gana la ronda ";
 		if(this.empate)

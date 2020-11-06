@@ -23,35 +23,31 @@ public class Carta {
 		this.nombre = nombre;
 	}
 	
-	public void addAtributos(Atributo atributos) {
-		this.atributos.add(atributos);
-	}
-
-	public Atributo getAtributo(int i) {
-		return new Atributo(this.atributos.get(i).getNombre(), this.atributos.get(i).getValor());
-	}
-
 	public PocimaAbs getPocima() {
 		return pocima;
-	}
-
-	public ArrayList<Atributo> getAtributos() {
-		return new ArrayList<Atributo>(this.atributos);
 	}
 	
 	public void setPocima(PocimaAbs pocima) {
 		this.pocima = pocima;
 	}
-
-	public int cantAtributos() {
-		return this.atributos.size();
-	}
 	
+	public void addAtributos(Atributo atributos) {
+		this.atributos.add(atributos);
+	}
+
 	public boolean tieneAtributo(String s) {
 		for(Atributo atributo: atributos)
 			if(atributo.getNombre().equals(s))
 				return true;
 		return false;
+	}
+	
+	public Atributo getAtributo(int i) {
+		return new Atributo(this.atributos.get(i).getNombre(), this.atributos.get(i).getValor());
+	}
+	
+	public int cantAtributos() {
+		return this.atributos.size();
 	}
 	
 	public int getValorSimple(String nombre) {

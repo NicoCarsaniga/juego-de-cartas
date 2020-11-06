@@ -7,7 +7,6 @@ public class Obstinado extends EstrategiaJugador {
 	private String atributo;
 	
 	public Obstinado(String atributo) {
-		super();
 		this.atributo = atributo;
 	}
 
