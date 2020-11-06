@@ -36,6 +36,10 @@ public class Carta {
 		return pocima;
 	}
 
+	public ArrayList<Atributo> getAtributos() {
+		return new ArrayList<Atributo>(this.atributos);
+	}
+	
 	public void setPocima(PocimaAbs pocima) {
 		this.pocima = pocima;
 	}
@@ -49,6 +53,14 @@ public class Carta {
 			if(atributo.getNombre().equals(s))
 				return true;
 		return false;
+	}
+	
+	public int getValorSimple(String nombre) {
+		for(Atributo atributo: atributos)
+			if(atributo.getNombre().equals(nombre)){
+				return atributo.getValor();
+			}
+		return 0;
 	}
 	
 	public int getValor(String nombre) {//este metodo es modifcado por las pocimas

@@ -60,7 +60,7 @@ public class Mazo {
 			limite = cartas.size();
 		
 		for(int i = 0; i < limite; i++)
-			cartas.get(i).setPocima(pocimas.remove(i));		
+			cartas.get(i).setPocima(pocimas.get(i));		
 				
 	}
 

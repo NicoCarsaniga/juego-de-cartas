@@ -28,15 +28,12 @@ public class Juego {
 		Jugador ganador = null;
 		Jugador perdedor = null;
 		int resultado = c1.combatir(c2, atributoNombre);
-		String aux = "Gana la ronda ";
 		this.contadorRonda++;
-		//Primer parte del mensaje
-		String msj = "------- Ronda " + this.contadorRonda + " -------\r\n" + 
-				"El jugador " + primero.getNombre() + " selecciona competir por el atributo " + atributoNombre + "\r\n" + 
-				"La carta de " + j1.getNombre() + " es " + j1.getPrimerCarta().getNombre() + " con " + atributoNombre + " " + 
-				j1.getPrimerCarta().getValor(atributoNombre) + " , se aplicó pócima\r\n" + "Fortalecedora valor resultante 924\r\n" + 
-				"La carta de " + j2.getNombre() + " es " + j2.getPrimerCarta().getNombre() + " con " + atributoNombre + " " + 
-				j2.getPrimerCarta().getValor(atributoNombre) + "\r\n";
+		
+		Mensaje msjRonda = new Mensaje(atributoNombre, this.contadorRonda);
+		msjRonda.eleccionAtributo(primero.getNombre());
+		msjRonda.datosCombate(j1);
+		msjRonda.datosCombate(j2);
 		
 		if(resultado < 0) {
 			j2.addCarta(j1.removePrimerCarta());
@@ -51,16 +48,17 @@ public class Juego {
 		}else {
 			j1.addCarta(j1.removePrimerCarta());
 			j2.addCarta(j2.removePrimerCarta());
-			aux = "Hubo Empate. ";
+			msjRonda.setEmpate(true);
+			//aux = ;
 			ganador = primero;
 			if(ganador == j1)
 				perdedor = j2;
 			else
 				perdedor = j1;
 		}
-		//Segunda parte del mensaje
-		System.out.println(msj + aux + ganador.getNombre() + " queda con " + ganador.cantCartas() + " cartas ( " + perdedor.getNombre() +
-				" posee ahora " + perdedor.cantCartas() + "\r\n" + "cartas)\r\n");
+		
+		msjRonda.resultadoCombate(ganador, perdedor);
+		System.out.println(msjRonda.getMensajeRonda());
 		return ganador;
 	}
 
